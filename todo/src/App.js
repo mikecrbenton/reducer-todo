@@ -4,11 +4,12 @@ import './components/Todo.css'
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 import styled from 'styled-components';
+
 import { initialState, taskReducer } from './reducers/index' 
 
 
 function App() {
- 
+                           // USEREDUCER 
   const [ list, dispatch] = useReducer(taskReducer, initialState );
   console.log("LIST IN APP ",list);
 
@@ -40,6 +41,7 @@ function App() {
            toggleTask={toggleTask} // drilling down 
            clearCompleted={clearCompleted}
          />
+         
       </MainContainer>
     );
 }

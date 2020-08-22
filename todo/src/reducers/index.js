@@ -44,6 +44,8 @@ export const initialState = [
     },
  ];
 
+ // ALL THE STATE CHANGES HAPPEN HERE
+
 /* 
    --useReducer() takes your initial state and your custom function
      and passes them to state.  dispatch becomes like your setter
@@ -97,5 +99,6 @@ export const taskReducer = (state, action) => {
 
       default:
          console.log("error");
+         return state;
    }
 }
