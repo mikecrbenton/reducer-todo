@@ -1,3 +1,5 @@
+import { TOGGLE_TODO, CLEAR_COMPLETED, ADD_TODO } from "../actions/todoActions"
+
 // Need to add a reducer for 
 // TOGGLE_COMPLETED
 // ADD_NEWTASK
@@ -71,7 +73,7 @@ export const taskReducer = (state, action) => {
 
       /* A new object is created with the payload
          set by state in TodoForm.js  */
-      case 'ADD_TODO' :
+      case ADD_TODO :
          const newTask = {
             task: action.payload,
             id: Date.now(),
@@ -80,11 +82,13 @@ export const taskReducer = (state, action) => {
          // Previous state is returned with
          // the new object added
          return [...state, newTask]
+         
 
       /* State is mapped through the matched id is
          toggled -  */
-      case 'TOGGLE_TODO' :
+      case TOGGLE_TODO :
          const newState = state.map( (task)=>{ 
+            
             if(action.payload === task.id){
                return { ...task, completed: !task.completed};
             }else{
@@ -94,8 +98,9 @@ export const taskReducer = (state, action) => {
          return newState;
          
       
-      case 'CLEAR_TODO' :
+      case CLEAR_COMPLETED :
          return state.filter( item => !item.completed);
+
 
       default:
          console.log("error");

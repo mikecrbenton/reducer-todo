@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
 import './Todo.css';
+import actions from '../actions/todoActions'
+
 
 function ListForm( props ) {
 
@@ -12,11 +14,12 @@ function ListForm( props ) {
 
   const submitHandler = e => {
     e.preventDefault();
-    props.dispatch(
-       { 
-          type:"ADD_TODO", 
-          payload: todoText
-       });
+   //  props.dispatch(
+   //     { 
+   //        type:"ADD_TODO", 
+   //        payload: todoText
+   //     });
+   props.dispatch( actions.addTodo(todoText) )
     //clear form
     setTodoText("");
   };

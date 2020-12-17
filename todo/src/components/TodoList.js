@@ -1,9 +1,10 @@
 import React from "react";
 import Todo from "./Todo";
 import styled from 'styled-components';
+import actions from '../actions/todoActions'
 
 //**FUNCTIONAL COMPONENT**
-const ToDoList = ({ list, toggleTask, clearCompleted }) => {
+const ToDoList = ({ list, toggleTask, dispatch, clearCompleted }) => {
 
    console.log(list)
   return (
@@ -13,11 +14,14 @@ const ToDoList = ({ list, toggleTask, clearCompleted }) => {
          return <Todo 
                      todo={todo} 
                      key={todo.id} 
-                     toggleTask={toggleTask} 
+                     //toggleTask={toggleTask} 
+                     dispatch={dispatch}
                   />;
          })}
       </TodoList>
-      <button onClick={clearCompleted}>
+      <button 
+         //onClick={clearCompleted}>
+         onClick={ () => dispatch( actions.clearCompleted()) }>
          Clear Completed
       </button>
     </ListContainer>

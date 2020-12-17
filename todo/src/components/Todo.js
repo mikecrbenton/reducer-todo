@@ -1,6 +1,7 @@
 import React from 'react';
 import './Todo.css'
 import styled from 'styled-components';
+import actions from '../actions/todoActions'
 
 //**FUNCTIONAL COMPONENT**
 const Todo = (props) => {
@@ -9,7 +10,8 @@ const Todo = (props) => {
     <TodoItem
       //toggles the classname 
       className={`todo${props.todo.completed ? ' completed' : ''}`}
-      onClick={(e) => props.toggleTask(props.todo.id)}
+      // onClick={(e) => props.toggleTask(props.todo.id)}
+      onClick={(e) => props.dispatch( actions.toggleTodo(props.todo.id) ) }
     >
       <p>{props.todo.task}</p>
     </TodoItem>

@@ -11,22 +11,19 @@ import { initialState, taskReducer } from './reducers/index'
 function App() {
                            // USEREDUCER 
   const [ list, dispatch] = useReducer(taskReducer, initialState );
-  console.log("LIST IN APP ",list);
+  
 
-  const toggleTask = ( todoId ) => {
+//   const toggleTask = ( todoId ) => {
+//       dispatch({
+//          type: "TOGGLE_TODO",
+//          payload: todoId
+//       })
+//   };
 
-   dispatch(
-      {
-         type: "TOGGLE_TODO",
-         payload: todoId
-      })
- };
-
-
- const clearCompleted = e => {
-   e.preventDefault();
-   dispatch( {type: "CLEAR_TODO"});
- };
+   // const clearCompleted = e => {
+   //    e.preventDefault();
+   //    dispatch( {type: "CLEAR_TODO"});
+   // };
 
     return (
       <MainContainer>
@@ -38,10 +35,11 @@ function App() {
 
          <TodoList
            list={list} //passing state as props
-           toggleTask={toggleTask} // drilling down 
-           clearCompleted={clearCompleted}
+           //toggleTask={toggleTask} // drilling down functions
+           //clearCompleted={clearCompleted}
+           dispatch={dispatch}
          />
-         
+
       </MainContainer>
     );
 }
